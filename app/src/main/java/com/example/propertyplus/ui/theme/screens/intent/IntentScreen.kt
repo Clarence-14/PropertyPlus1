@@ -20,11 +20,17 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.Face
 import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.Person
+import androidx.compose.material.icons.outlined.PlayArrow
+import androidx.compose.material.icons.outlined.ShoppingCart
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Button
@@ -78,8 +84,7 @@ fun IntentScreen(navController: NavController){
         Scaffold(
             bottomBar = {
                 NavigationBar (
-                    containerColor = Blue,
-                    contentColor = Color.Cyan
+
                 ){
                     bottomNavItems.forEachIndexed { index, bottomNavItem ->
                         NavigationBarItem(
@@ -184,7 +189,7 @@ fun IntentScreen(navController: NavController){
                         }  //END OF CARD 1
 
                         Column(modifier = Modifier.padding(start = 20.dp)) {
-                            Text(text = "Visit lavington", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+                            Text(text = "Visit Lavington", fontSize = 20.sp, fontWeight = FontWeight.Bold)
                             Text(text = "The best property you can find")
                             Row {
                                 Icon(imageVector = Icons.Default.Star, contentDescription ="star", modifier = Modifier.size(30.dp))
@@ -198,8 +203,14 @@ fun IntentScreen(navController: NavController){
 
                             }
                             Text(text = "14400 REVIEWS")
+
+                            val mContext= LocalContext.current
+
                             Button(
                                 onClick = {
+                                    val callIntent=Intent(Intent.ACTION_DIAL)
+                                    callIntent.data="tel:0700048750".toUri()
+                                    mContext.startActivity(callIntent)
 
                                 },
                                 colors = ButtonDefaults.buttonColors(Blue),
@@ -270,7 +281,7 @@ fun IntentScreen(navController: NavController){
 
                             val smsIntent=Intent(Intent.ACTION_SENDTO)
                             smsIntent.data="smsto:0700048750".toUri()
-                            smsIntent.putExtra("sms_body","Hello Clarence,how can we help?")
+                            smsIntent.putExtra("sms_body","Hello, Clarence here, how can we help?")
                             mContext.startActivity(smsIntent)
 
                         },
@@ -318,7 +329,7 @@ fun IntentScreen(navController: NavController){
 
                             val shareIntent=Intent(Intent.ACTION_SEND)
                             shareIntent.type="text/plain"
-                            shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this is a cool content")
+                            shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out my new app")
                             mContext.startActivity(Intent.createChooser(shareIntent, "Share"))
 
                         },
@@ -391,19 +402,28 @@ val bottomNavItems = listOf(
 
 
     BottomNavItem(
-        title = "Login",
-        route="login",
-        selectedIcon=Icons.Filled.Person,
-        unselectedIcon=Icons.Outlined.Person,
+        title = "Details",
+        route="details",
+        selectedIcon=Icons.Filled.Info,
+        unselectedIcon=Icons.Outlined.Info,
         hasNews = true,
         badges=5
     ),
 
     BottomNavItem(
-        title = "Signup",
-        route="signup",
-        selectedIcon=Icons.Filled.Face,
-        unselectedIcon=Icons.Outlined.Face,
+        title = "Property",
+        route="property",
+        selectedIcon=Icons.Filled.PlayArrow,
+        unselectedIcon=Icons.Outlined.PlayArrow,
+        hasNews = true,
+        badges=1
+    ),
+
+    BottomNavItem(
+        title = "About",
+        route="about",
+        selectedIcon=Icons.Filled.ShoppingCart,
+        unselectedIcon=Icons.Outlined.ShoppingCart,
         hasNews = true,
         badges=1
     ),
