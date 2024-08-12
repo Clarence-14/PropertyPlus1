@@ -247,7 +247,7 @@ fun IntentScreen(navController: NavController){
                         onClick = {
 
                             val callIntent=Intent(Intent.ACTION_DIAL)
-                            callIntent.data="tel:0706572440".toUri()
+                            callIntent.data="tel:0700048750".toUri()
                             mContext.startActivity(callIntent)
 
                         },
@@ -269,8 +269,8 @@ fun IntentScreen(navController: NavController){
                         onClick = {
 
                             val smsIntent=Intent(Intent.ACTION_SENDTO)
-                            smsIntent.data="smsto:0706572440".toUri()
-                            smsIntent.putExtra("sms_body","Hello Anthony,how can we help?")
+                            smsIntent.data="smsto:0700048750".toUri()
+                            smsIntent.putExtra("sms_body","Hello Clarence,how can we help?")
                             mContext.startActivity(smsIntent)
 
                         },
@@ -293,7 +293,7 @@ fun IntentScreen(navController: NavController){
 
                             val shareIntent = Intent(Intent.ACTION_SEND)
                             shareIntent.type = "text/plain"
-                            shareIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("njirainianthony@gmail.com"))
+                            shareIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("thisisclarence1@gmail.com"))
                             shareIntent.putExtra(Intent.EXTRA_SUBJECT, "subject")
                             shareIntent.putExtra(Intent.EXTRA_TEXT, "Hello, this is the email body")
                             mContext.startActivity(shareIntent)
