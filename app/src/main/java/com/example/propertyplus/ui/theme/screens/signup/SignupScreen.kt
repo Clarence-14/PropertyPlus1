@@ -9,8 +9,14 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
@@ -27,12 +33,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.propertyplus.R
+import com.example.propertyplus.navigation.ROUT_DETAIL
+import com.example.propertyplus.ui.theme.Blue
 
 
 @Composable
@@ -73,6 +83,8 @@ fun SignupScreen(navController: NavController){
         var password by remember { mutableStateOf("") }
         var confpassword by remember { mutableStateOf("") }
 
+        Spacer(modifier = Modifier.height(20.dp))
+
         OutlinedTextField(
             value = name,
             onValueChange = {name = it},
@@ -80,9 +92,84 @@ fun SignupScreen(navController: NavController){
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 20.dp, end = 20.dp),
-            leadingIcon = { Icon(imageVector = Icons.Default.Person, contentDescription = "Person")},
+            leadingIcon = { Icon(imageVector = Icons.Default.Person, contentDescription = "Person", tint = Color.Blue)},
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
 
         )
+        Spacer(modifier = Modifier.height(20.dp))
+        
+        OutlinedTextField(
+            value = email,
+            onValueChange = {email = it},
+            label = {Text(text = "Email Address")},
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 20.dp, end = 20.dp),
+            leadingIcon = { Icon(imageVector = Icons.Default.Email, contentDescription = "", tint = Color.Blue)},
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
+
+        )
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        OutlinedTextField(
+            value = password,
+            onValueChange = {password = it},
+            label = {Text(text = "Password")},
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 20.dp, end = 20.dp),
+            leadingIcon = { Icon(imageVector = Icons.Default.Lock, contentDescription = "", tint = Color.Blue)},
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+            visualTransformation = PasswordVisualTransformation(),
+
+        )
+
+        Spacer(modifier = Modifier.height(20.dp))
+        OutlinedTextField(
+            value = confpassword,
+            onValueChange = {confpassword = it},
+            label = {Text(text = "Confirm Password")},
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 20.dp, end = 20.dp),
+            leadingIcon = { Icon(imageVector = Icons.Default.Lock, contentDescription = "", tint = Color.Blue)},
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+            visualTransformation = PasswordVisualTransformation(),
+            )
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Button(
+            onClick = {},
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(50.dp)
+                .padding(start = 20.dp, end = 20.dp),
+            colors = ButtonDefaults.buttonColors(Blue),
+            shape = RoundedCornerShape(10.dp)
+        ) {
+
+            Text(text = ("Create An Account"))
+
+        }
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Button(
+            onClick = {},
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(50.dp)
+                .padding(start = 20.dp, end = 20.dp),
+            colors = ButtonDefaults.buttonColors(Blue),
+            shape = RoundedCornerShape(10.dp)
+        ) {
+
+            Text(text = ("Login"))
+
+        }
+
+
 
 
     }
