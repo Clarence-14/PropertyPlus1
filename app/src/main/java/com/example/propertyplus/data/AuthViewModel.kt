@@ -23,11 +23,11 @@ class AuthViewModel(var navController: NavController, var context: Context){
         progress.setMessage("Please wait...")
     }
     fun signup(name:String, email:String, password:String,confpassword:String){
-        progress.show()
+
 
         if (email.isBlank() || password.isBlank() ||confpassword.isBlank()){
-            progress.dismiss()
-            Toast.makeText(context,"Please email and password cannot be blank", Toast.LENGTH_LONG).show()
+
+            Toast.makeText(context,"Email and password cannot be blank", Toast.LENGTH_LONG).show()
         }else if (password != confpassword){
             Toast.makeText(context,"Password do not match", Toast.LENGTH_LONG).show()
         }else{
