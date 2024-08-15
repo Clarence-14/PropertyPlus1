@@ -65,7 +65,7 @@ fun SignupScreen(navController: NavController){
             painter = painterResource(id = R.drawable.propertyplus),
             contentDescription ="home",
             modifier = Modifier
-                .size(200.dp),
+                .size(150.dp),
             contentScale = ContentScale.Crop
 
         )
