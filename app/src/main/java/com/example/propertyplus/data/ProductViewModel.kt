@@ -41,7 +41,7 @@ class ProductViewModel(var navController: NavController, var context: Context) {
                 // Save data to db
                 storageRef.downloadUrl.addOnSuccessListener {
                     var imageUrl = it.toString()
-                    var product = Product.Product(name, quantity, price, phone, imageUrl, productId)
+                    var product = Product(name,quantity,price,phone,imageUrl,productId)
                     var databaseRef = FirebaseDatabase.getInstance().getReference()
                         .child("Products/$productId")
                     databaseRef.setValue(product).addOnCompleteListener {

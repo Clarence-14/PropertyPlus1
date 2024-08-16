@@ -32,9 +32,11 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.propertyplus.R
+import com.example.propertyplus.navigation.ADD_PRODUCTS_URL
 import com.example.propertyplus.navigation.ROUT_DETAIL
 import com.example.propertyplus.navigation.ROUT_HOME
 import com.example.propertyplus.navigation.ROUT_PROPERTY
+import com.example.propertyplus.navigation.VIEW_PRODUCTS_URL
 import com.example.propertyplus.ui.theme.Blue
 import com.example.propertyplus.ui.theme.Lavender
 import com.example.propertyplus.ui.theme.LightBlue
@@ -115,14 +117,14 @@ fun DashboardScreen(navController: NavController){
                             Spacer(modifier = Modifier.height(10.dp))
                             Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
                                 Image(
-                                    painter = painterResource(id = R.drawable.user),
-                                    contentDescription = "profile",
+                                    painter = painterResource(id = R.drawable.phone),
+                                    contentDescription = "contacts",
                                     modifier = Modifier.size(100.dp))
 
                             }
                             Spacer(modifier = Modifier.height(10.dp))
                             Text(
-                                text = "Profile",
+                                text = "Contacts",
                                 fontSize = 18.sp,
                                 modifier = Modifier.fillMaxWidth(),
                                 textAlign = TextAlign.Center)
@@ -196,21 +198,21 @@ fun DashboardScreen(navController: NavController){
                     Card(modifier = Modifier
                         .width(160.dp)
                         .height(180.dp)
-                        .clickable { navController.navigate(ROUT_PROPERTY) },
+                        .clickable { navController.navigate(ADD_PRODUCTS_URL) },
                         elevation = CardDefaults.cardElevation(10.dp)) {
 
                         Column {
                             Spacer(modifier = Modifier.height(10.dp))
                             Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
                                 Image(
-                                    painter = painterResource(id = R.drawable.phone),
-                                    contentDescription = "contacts",
+                                    painter = painterResource(id = R.drawable.addproduct),
+                                    contentDescription = "product",
                                     modifier = Modifier.size(100.dp))
 
                             }
                             Spacer(modifier = Modifier.height(10.dp))
                             Text(
-                                text = "Contacts",
+                                text = "Add Product",
                                 fontSize = 18.sp,
                                 modifier = Modifier.fillMaxWidth(),
                                 textAlign = TextAlign.Center)
@@ -222,21 +224,21 @@ fun DashboardScreen(navController: NavController){
                     Card(modifier = Modifier
                         .width(160.dp)
                         .height(180.dp)
-                        .clickable { navController.navigate(ROUT_HOME) },
+                        .clickable { navController.navigate(VIEW_PRODUCTS_URL) },
                         elevation = CardDefaults.cardElevation(10.dp)) {
 
                         Column {
                             Spacer(modifier = Modifier.height(10.dp))
                             Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
                                 Image(
-                                    painter = painterResource(id = R.drawable.homeicon),
-                                    contentDescription = "home",
+                                    painter = painterResource(id = R.drawable.viewprod),
+                                    contentDescription = "products",
                                     modifier = Modifier.size(100.dp))
 
                             }
                             Spacer(modifier = Modifier.height(10.dp))
                             Text(
-                                text = "Home",
+                                text = "View Products",
                                 fontSize = 18.sp,
                                 modifier = Modifier.fillMaxWidth(),
                                 textAlign = TextAlign.Center)
